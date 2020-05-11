@@ -1,7 +1,7 @@
 # EventBrite_Cambrai <img src="https://raw.githubusercontent.com/matiassingers/awesome-readme/master/icon.png" width="30px" style="float: right">
 
 
-→ EventBrite est une sorte d'Eventbrite appliqué à ta ville : les utilisateurs peuvent créer des événements, fixer un prix, mettre en ligne une photo de profil, puis les visiteurs de l'application peuvent rejoindre les événements en payant le prix. Bien entendu, il y a une gestion d'utilisateurs avec login / logout, et une interface administrateur pour valider les événements de l'application !  
+→ EventBrite est une sorte d'Eventbrite appliqué à une ville française -> Cambrai : les utilisateurs peuvent créer des événements, fixer un prix, mettre en ligne une photo de profil, puis les visiteurs de l'application peuvent rejoindre les événements en payant le prix. Bien entendu, il y a une gestion d'utilisateurs avec login / logout, et une interface administrateur pour valider les événements de l'application !  
 
 ## 👤  Auteur(s) : 
 
