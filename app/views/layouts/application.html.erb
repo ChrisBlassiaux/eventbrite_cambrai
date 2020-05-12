@@ -35,7 +35,8 @@
                 Mon profil
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <div class="dropdown-item"><%= link_to "Mon profil", '#' %></div>
+                <%# le chemin de mon profil peut envoyer peut-être vers une meilleure page ?  %>
+                <div class="dropdown-item"><%= link_to "Mon profil", edit_user_registration_path %></div> 
                 <div class="dropdown-item"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "text-danger" %> </div>
               </div> 
             </li>
