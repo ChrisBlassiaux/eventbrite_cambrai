@@ -1,17 +1,26 @@
 <div class="container">
   <% user = User.find(params[:id]) %>
   <div class="card mt-2">
-    <h3 class="card-header">Profil</h3>
+    <h2 class="card-header">Profil</h2>
     <p class="card-header">Nom : <%= user.last_name %></p>
     <p class="card-header">Prénom : <%= user.first_name %></p>
-    <p class="card-header">email : <%= user.email %></p> 
+    <p class="card-header">Email : <%= user.email %></p> 
   </div>
   <a href=<%= edit_user_registration_path %> class="btn btn-dark mt-3">Modifier mon profil</a>
   <a href="/" class="btn btn-dark mt-3">Retour</a>
 </div>
 
+<div class="container">
+  <h3 class="mt-5">Les évènements proposés</h3> <br>
 
-<%# faire fonctionner cette page et mettre les évènements qui a créé ,
-  la page show du user créé conflits, les autres liens de la navbar amène à celle ci
- %>
- 
+  <div class="row">
+  <% @events = Event.all %>
+  <% @events.order('events.created_at DESC').all.each do |event| %>
+    <% if event.admin_id == user.id %>
+      <div class="card-header">
+        <a href=<%= event_path(event.id) %> class=""><%= event.title %></a>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
