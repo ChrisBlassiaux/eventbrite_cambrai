@@ -35,15 +35,13 @@
                 Mon profil
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <%# le chemin de mon profil peut envoyer peut-être vers une meilleure page ?  %>
-                <div class="dropdown-item"><%= link_to "Mon profil", edit_user_registration_path %></div> 
+                <div class="dropdown-item"><%= link_to "Mon profil", user_path(current_user.id) %></div> 
                 <div class="dropdown-item"><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "text-danger" %> </div>
               </div> 
             </li>
-          <% end %>
 
           <%# If user is logout %>
-          <% if !current_user %>
+          <% else %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Se connecter / S'inscrire

@@ -1,0 +1,16 @@
+<div class="container">
+  <% user = User.find(params[:id]) %>
+  <div class="card mt-2">
+    <h3 class="card-header">Profil</h3>
+    <p class="card-header">Nom : <%= user.last_name %></p>
+    <p class="card-header">Prénom : <%= user.first_name %></p>
+    <p class="card-header">email : <%= user.email %></p> 
+  </div>
+  <a href="/" class="btn btn-dark mt-3">Retour</a>
+</div>
+
+
+<%# faire fonctionner cette page et mettre les évènements qui a créé ,
+  la page show du user créé conflits, les autres liens de la navbar amène à celle ci
+ %>
+ 

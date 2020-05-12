@@ -1,5 +1,14 @@
+
 <div class="container">
-
-  <h1>Page event n°<%= params[:id] %></h1>
-
+  <% event = Event.find(params[:id]) %>
+  <div class="card mt-2">
+    <h2 class="card-header"><%= event.title %></h2>
+    <p class="card-header"><%= event.description %></p>
+    <%# Nombre d'inscrit %>
+    <p class="card-header">Créateur : <%= User.find_by(id: event.admin_id).first_name %></p> 
+    <p class="card-header">Date de début : <%= event.start_date %></p> 
+    <p class="card-header">Lieu : <%= event.location %></p> 
+    <p class="card-header">Prix : <%= event.price %></p> 
+  </div>
+  <a href="/" class="btn btn-dark mt-3">Retour</a>
 </div>
