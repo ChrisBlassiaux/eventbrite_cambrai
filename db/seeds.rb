@@ -26,10 +26,10 @@ end
 Event.create(
   start_date: "2021-01-01",
   duration: 30,
-  title: "Marché de nuit à midi",
-  description: "Vente de lapin et de chocolat aux figues",
+  title: "Regarder la TV",
+  description: "En mangant du chocolat",
   price: 20,
-  location: "New York",
+  location: "Cambrai",
   admin_id: User.last.id
 )
 
