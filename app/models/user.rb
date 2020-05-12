@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  # after_create :welcome_send   Le décommenter quand le mailer sera reparé
+  #after_create :welcome_send
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
