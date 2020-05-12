@@ -15,10 +15,26 @@ i = 0
 10.times do
   User.create!(
     email: "email#{i}@yopmail.com",
-    encrypted_password: "password",
+    password: "password",
     description: Faker::Lorem.sentence(word_count: 10),
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name
   )
   i += 1
 end
+
+Event.create(
+  start_date: "2021-01-01",
+  duration: 30,
+  title: "Marché de nuit à midi",
+  description: "Vente de lapin et de chocolat aux figues",
+  price: 20,
+  location: "New York",
+  admin_id: User.last.id
+)
+
+Attendance.create(
+  strip_customer_id: "123456",
+  user_id: User.first.id,
+  event_id: Event.first.id
+)
