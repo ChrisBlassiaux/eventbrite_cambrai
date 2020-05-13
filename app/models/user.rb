@@ -1,10 +1,11 @@
 class User < ApplicationRecord
-  #after_create :welcome_send
-
+ 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  after_create :welcome_send
 
   # validates :email, uniqueness: true, presence: true, format: { with: /\A[^@\s]+@([^@\s]+.)+[^@\s]+\z/, message: "Adresse email s'il te plait" }
   # validates :encrypted_password, presence: true, length: {in: 6..20}

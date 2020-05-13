@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!    #, only: [:show]
-  # before_action :his_profil, only: [:show]
+  before_action :authenticate_user!
+  before_action :is_current_user? , only: [:show]
 
   def index
     @users = User.all
@@ -12,10 +12,9 @@ class UsersController < ApplicationController
 
   private
 
-  def his_profil
-    if current_user.id == params[:id]
-      flash[:echec] = "Connecte toi pour voir ton profil !"
-      redirect_to new_user_session_path
+  def is_current_user?
+    unless current_user == User.find(params[:id])
+      redirect_to root_path
     end
   end
 end
