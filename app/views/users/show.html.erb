@@ -1,5 +1,5 @@
 <div class="container">
-  <% user = User.find(params[:id]) %>
+  <% user = current_user %>
   <div class="card mt-2">
     <h2 class="card-header">Profil</h2>
     <p class="card-header">Nom : <%= user.last_name %></p>

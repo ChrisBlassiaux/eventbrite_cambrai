@@ -14,8 +14,29 @@
  *= require_self
  */
 
-nav {
-  background-color: rgba(255, 255, 255, .5);
+nav a {
+  color: #fff;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.border-nav {
+  border-radius: 5px;
+  padding: 5px 3px;
+  border: 1px solid #FFF;
+  transition: .3s;
+}
+
+.border-nav:hover {
+  border-color: rgb(43, 55, 56);
+  background-color:  rgb(43, 55, 56);
+}
+
+.border-nav a {
+  text-decoration: none;
 }
 
 .right {

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user, only: [:create, :new]
-  #before_action :gossip_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -31,5 +31,10 @@ class EventsController < ApplicationController
       flash[:echec] = "Connecte toi avant de créer ton évènement !"
       redirect_to new_user_session_path
     end
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
   end
 end
