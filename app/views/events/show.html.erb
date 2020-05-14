@@ -1,14 +1,24 @@
 
 <div class="container">
-  <% event = Event.find(params[:id]) %>
   <div class="card mt-2">
-    <h2 class="card-header"><%= event.title %></h2>
-    <p class="card-header"><%= event.description %></p>
-    <%# Nombre d'inscrit %>
-    <p class="card-header">Créateur : <%= User.find_by(id: event.admin_id).email %></p> 
-    <p class="card-header">Date de début : <%= event.start_date %></p> 
-    <p class="card-header">Lieu : <%= event.location %></p> 
-    <p class="card-header">Prix : <%= event.price %></p> 
+    <h2 class="card-header"><%= @event.title %></h2>
+    <p class="card-header"><%= @event.description %></p>
+    <p class="card-header">Créateur : <%= User.find_by(id: @event.admin_id).email %></p> 
+    <p class="card-header">Date de début : <%= @event.start_date %></p> 
+    <p class="card-header">Lieu : <%= @event.location %></p> 
+    <p class="card-header">Prix : <%= @event.price %></p> 
   </div>
+  <% if current_user %>
+    <% if Attendance.find_by(user_id: current_user.id, event_id: @event.id) == nil && current_user.id != @event.admin_id %>
+      <%= link_to "Participer à l'évènement !", attendances_path(@event), method: :post, class: "btn btn-dark mt-3" %>
+    <% end %>
+  <% end %>
+
+  <br>
+
   <a href="/" class="btn btn-dark mt-3">Retour</a>
 </div>
+
+
+
+    <%# Nombre d'inscrit %>

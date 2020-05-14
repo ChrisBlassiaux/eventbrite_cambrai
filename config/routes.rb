@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events, only: [:new, :create, :show]
   resources :users
-
   resources :charges, only: [:new, :create]
+  resources :attendances, only: [:new, :create, :index]
  end

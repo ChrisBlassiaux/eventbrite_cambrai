@@ -12,8 +12,8 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
 
-  def new_attendance(user)
-    @user = user
+  def new_attendance(attendance)
+    @user = User.find(attendance.user_id)
 
     @url  = 'https://events-cambrai.herokuapp.com/'
 
