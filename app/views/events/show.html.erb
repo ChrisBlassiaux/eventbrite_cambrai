@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="card mt-2">
     <h2 class="card-header"><%= @event.title %></h2>
@@ -6,19 +5,40 @@
     <p class="card-header">Créateur : <%= User.find_by(id: @event.admin_id).email %></p> 
     <p class="card-header">Date de début : <%= @event.start_date %></p> 
     <p class="card-header">Lieu : <%= @event.location %></p> 
-    <p class="card-header">Prix : <%= @event.price %></p> 
   </div>
+
   <% if current_user %>
     <% if Attendance.find_by(user_id: current_user.id, event_id: @event.id) == nil && current_user.id != @event.admin_id %>
-      <%= link_to "Participer à l'évènement !", attendances_path(@event), method: :post, class: "btn btn-dark mt-3" %>
+      <%= form_tag attendances_path(@event) do %>
+    <article>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <p>Veuillez souscrire pour participer à l'évènement :</p>
+        <span>Montant: <%= @event.price.to_f / 100 %></span>
+      </label>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="Participer à l'évènement"
+              data-amount="<%= @event.price.to_f / 100 %>"
+              data-currency="eur"
+              data-locale="auto"></script>
+      <% end %>
     <% end %>
   <% end %>
 
-  <br>
-
   <a href="/" class="btn btn-dark mt-3">Retour</a>
+
+  <%# Les Participants %>
+
+  <% if current_user %>
+    <% if current_user.id == @event.admin_id %>
+      <div class="dropdown-item mt-3"><%= link_to "Mon espace évènement", attendances_path(@event), class: "text-danger" %> </div>
+    <% end %>
+  <% end %>
 </div>
-
-
-
-    <%# Nombre d'inscrit %>
