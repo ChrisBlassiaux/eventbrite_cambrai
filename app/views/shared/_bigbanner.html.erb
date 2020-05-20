@@ -1,0 +1,48 @@
+
+  <div id="myCarousel" class="carousel slide mb-5" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag "cock.jpg", class: "first-slide" %> 
+        <div class="container">
+          <div class="carousel-caption text-left">
+            <h1>Evènements virtuels</h1>
+            <p>Gardez le contact grâce aux événements virtuels.</p>
+            <p><a class="btn btn-lg btn-primary" href=<%= new_event_path %> role="button">Créer un évènement</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "event.jpg", class: "first-slide" %> 
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Votre ville</h1>
+            <p>Tous les évènements de votre ville sur une seule et même plateforme.</p>
+            <p><a class="btn btn-lg btn-primary" href=<%= new_event_path %> role="button">Créer un évènement</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag "rencontre.jpg", class: "first-slide" %> 
+        <div class="container">
+          <div class="carousel-caption text-right">
+            <h1>De toutes sortes !</h1>
+            <p>Les évènements vous permettent de faire des rencontres, et d'apprendre dans tous les domaines.</p>
+            <p><a class="btn btn-lg btn-primary" href=<%= new_event_path %> role="button">Créer un évènement</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
